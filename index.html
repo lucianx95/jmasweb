@@ -1,240 +1,55 @@
-<!DOCTYPE HTML>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE-edge">
-<meta name="viewport" content="width-devive-width, initial-scale-1.0">
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-     crossorigin=""/>
-<link rel="stylesheet" type="text/css" href="mapa.css">
-<!--<link rel="stylesheet" type="text/css" href="mapa2.css">-->
-<script src="https://kit.fontawesome.com/ed1e47dee4.js" crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-<title>mapa Pozos Cd. Juarez</title>
+<head>
+    <link rel="shortcut icon" href="logo_jmas.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SICOM.JMAS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <h1>JUNTA MUNICIPAL DE AGUA Y SANEAMIENTO</h1>
+    <nav>
+        <ul>
+            <li><a href="extraccion/login.php">EXTRACCION Y DISTRIBUCION</a></li>
+            <li><a href="perdidas/perdidas.php">GESTION DE PERDIDAS</a></li>
+            <li><a href="potable/potable.php">AGUA POTABLE</a></li>
+        </ul>
+    </nav>
+    <div class="slider">
+        <ul>
+            <li> <img src="imagenes deteccion de fugas/d6c1f1e7-f86e-4d65-82b9-d1d22cbe9f53.jpg" alt=""></li>
+            <li> <img src="" alt=""></li>
+            <li> <img src="" alt=""></li>
+            <li> <img src="" alt=""></li>
+        </ul>
 
-<!--<h1>MAPA DE LOS POZOS</h1> -->
-	<div class="content-select">
-<select name="select-location" id="select-location" >
-	<option value="-1">pozos</option>
-	<option value="31.751802, -106.425542">Pozo 1-RR</option>
-	<option value="31.74882201266625, -106.47438639753499">Pozo 5-R_CH</option>
-	<option value="31.704730, -106.474421">Pozo 6</option>
-	<!--<option value="31.730203, -106.481904">pozo 14</option>-->
-	<option value="31.744306, -106.492446">pozo 9-R</option>
-	<option value="31.75390343454366, -106.43441463064642">pozo 11-R</option>
-	<option value="31.716431593240593, -106.47917583083671">pozo 12</option>
-	<option value="31.730256, -106.481836">pozo 14-R</option>
-	<option value="31.73161342745948, -106.47666749679247">pozo 15-R</option>
-	<option value="31.736261, -106.490814">pozo 16-R</option>
-	<option value="31.756471189793775, -106.44495681440239">pozo 17-R</option>
-	<option value="31.699067, -106.416710">pozo 19-R</option>
-	<!--<option value="31.745746,-106.510436">pozo R22</option> Este es un Rebombeo-->
-	<option value="31.730145786385172, -106.44385743083637">pozo 23-R</option>
-	<option value="31.70708920719243, -106.3739902362628">pozo 24-R</option>
-	<option value="31.74411474976823, -106.45521649926873">pozo 33-R</option>
-	<option value="31.73762270441973, -106.43078095931355">pozo 38</option>
-	<option value="31.718603527164124, -106.43177213068138">pozo 42-R</option>
-	<option value="31.710994793395447, -106.45114135993622">pozo 45</option>
-	<option value="31.658118724934546, -106.43408670629216">pozo 46-R</option>
-	<option value="31.67115126684122, -106.37450886424874">pozo 47-R</option>
-	<option value="31.706096757866405, -106.4005431432752">pozo 48</option>
-	<option value="31.70568378653582, -106.46281354327758">pozo 49-R</option>
-	<option value="31.686360163103856, -106.43844772408981">pozo 50-R</option>
-	<option value="31.695651310465564, -106.46999486151732">pozo 52-R</option>
-	<option value="31.670794863421996, -106.43256093660459">pozo 54-R</option>
-	<option value="31.744772926626947, -106.48527540572634">pozo 55-R</option>
-	<option value="31.685225642702356, -106.37109369260705">pozo 56-R</option>
-	<option value="31.74944495501541, -106.44770731021202">pozo 58-R</option>
-	<option value="31.70188014503644, -106.46940635788074">pozo 59</option>
-	<option value="31.71173732363992, -106.48298949581405">pozo 60</option>
-	<option value="31.706930121232503, -106.44252268753246">pozo 61-R</option>
-	<option value="31.74507409473918, -106.48927092656668">pozo 62-R</option>
-	<option value="31.684663300082665, -106.46411250273958">pozo 63-R</option>
-	<option value="31.717196832074187, -106.46362443358245">pozo 64</option>
-	<option value="31.700493330154963, -106.45505439310674">pozo 66</option>
-	<option value="31.736542400788696, -106.41243279776576">pozo 67-R</option>
-	<option value="31.710900845236438, -106.41641501658212">pozo 68-R</option>
-	<option value="31.734835854568626, -106.39528494470939">pozo 69-R</option>
-	<option value="31.672696911036265, -106.44884766713365">pozo 70-R</option>
-	<option value="31.73104403553895, -106.42599711098742">pozo 71-R</option>
-	<option value="31.677152942139095, -106.46024287979952">pozo 72-R</option>
-	<option value="31.664958722855122, -106.42016385964833">pozo 73-R</option>
-	<option value="31.732689361383205, -106.40224363845749">pozo 76-R</option>
-	<option value="31.69607342614953, -106.37413863972532">pozo 79-R</option>
-	<option value="31.66012875252823, -106.37937495891434">pozo 80-AR</option>
-	<option value="31.667710091074895, -106.41521163347278">pozo 80-B</option>
-	<option value="31.69308466519405, -106.45609634177245">pozo 81</option>
-	<option value="31.67827754618632, -106.46721235199762">pozo 82-R</option>
-	<option value="31.69355729811299, -106.46688022705544">pozo 84</option>
-	<option value="31.683933792685337, -106.4535355977546">pozo 86-R</option>
-	<option value="31.679668892025898, -106.44872916591417">pozo 87</option>
-	<option value="31.66961970202313, -106.46304613202079">pozo 90-RRR</option>
-	<option value="31.677498448323067, -106.47462541031099">pozo 91-R</option>
-	<option value="31.667993455885636, -106.45158036642005">pozo 92-R</option>
-	<option value="31.66239035446025, -106.46120480925536">pozo 93-R</option>
-	<option value="31.650851104957795, -106.46500641494976">pozo 94-R</option>
-	<option value="31.658466779859904, -106.45007797739574">pozo 95</option>
-	<option value="31.649365570668017, -106.4532420156893">pozo 96</option>
-	<option value="31.643275, -106.455608">pozo 97-R</option>
-	<option value="31.66628359433715, -106.43931634407527">pozo 98-R</option>
-	<option value="31.65555435652498, -106.44350278436937">pozo 99-R</option>
-	<option value="31.665697539567283, -106.43002999811499">pozo 100</option>
+    </div>
+    <div class="contenido">
+        <div class="articulos">
+            <div class="secciones">
+                <div>
+                    <h2>SI.CO.M</h2>
+                    <p>Sistema de Comunicaciones y Monitoreo</p>
+                </div>
+                <div><img src=""></div>
+            </div>
+        </div>
+        <div class="menu-secundario">
+           <a href="https://www.jmasjuarez.gob.mx/vMain/index.php">JMAS JUAREZ</a>
+           <a href="https://weather.com/es-MX/tiempo/horario/l/Ciudad+Ju%C3%A1rez+Chihuahua?canonicalCityId=8566d11525efc31429faa67d9bbd0e202b3b311eb44bde8fc70728fb782f6687">CLIMA</a>
+           <a href="">GRAFICA</a>
+        </div>
+    </div>
+     
+    <footer >
 
-	<!--pozos despues del 100 hasta el 3 samalayuca-->
+      <p > Información, Soporte o Comentarios sobre esta página: <br > Alfredo Fierro: mafierro@jmasjuarez.gob.mx <br >   Jonathan Herrera: jonathan.hdz.9627@gmail.com <br >    Adan Rocha: adanx3x2@gmail. com </p>    
+    </footer >
 
-	<option value="31.64923735823351, -106.42343513790499">pozo 104</option>
-	<option value="31.753275718647636, -106.44354098888921">pozo 106</option>
-	<option value="31.749311528518884, -106.4410545572254">pozo 110</option>
-	<option value="31.747977750045656, -106.41933891842955">pozo 111</option>
-	<option value="31.674351501117474, -106.39529133075207">pozo 115</option>
-	<option value="31.64923735823351, -106.42343513790499">pozo 104</option>
-	<option value="31.695352851227653, -106.40096362723669">pozo 120(bateria A)</option>
-	<option value="31.697843397110884, -106.40753817330594">pozo 121</option>
-	<option value="31.70242129762256, -106.41353024425509">pozo 122(bateria A)</option>
-	<option value="31.706568431671503, -106.42197689242218">pozo 123(bateria A)</option>
-	<option value="31.70130899683977, -106.4030218579358">pozo 124(bateria A)</option>
-	<option value="31.68898476332398, -106.38743684775238">pozo 129(bateria A)</option>
-	<option value="31.726826392112756, -106.38472477151848">pozo 134(bateria A)</option>
-	<option value="31.69096648089365, -106.41727789423076">pozo 163(bateria A)</option>
-	<option value="31.70130899683977, -106.4030218579358">pozo 124(bateria A)</option>
-
-
-
-
-
-	<option value="31.607794, -106.446303">pozo 176</option>
-	<option value="31.606925, -106.425593">pozo 182</option>
-	<option value="31.606925, -106.425593">pozo 185</option>
-	<option value="31.545062, -106.394383">pozo 246</option>
-	<option value="31.551723, -106.353508">pozo 240</option>
-	<option value="31.588443, -106.362718">pozo 213</option>
-	<option value="31.606059, -106.409332">pozo 186</option>
-</select>
-
-
-
-<select name ="osmosis" id="osmosis">
-		<option value="-1">casetas osmosis inversa</option>
-		<option value="31.773639, -106.560361">anapra 1</option>31.611105984683913, -106.52460158636518
-	<option value="31.767291, -106.553364">anapra 2</option>
-	<option value="31.781083323926254, -106.56108919654338">anapra 3</option>
-	<option value="31.77534431298596, -106.56048261151615">anapra 4</option>
-	<option value="31.764241, -106.573071">anapra 5</option>
-	<option value="31.611132875975663, -106.52463316280141">km 27</option>
-	<option value="31.616096, -106.544700">km 29 norte</option>
-	<option value="31.610967499597482, -106.55128861223942">km 29 sur</option>
-	<option value="31.610906033667177, -106.54313286938523">km 29</option>
-	<option value="31.616055084990826, -106.48958644292289">osmosis bello horizonte</option>
-	</select>
-
-
-
-
-	<select name ="elevado" id="elevado">
-	<option value="-1">Tanques Elevados</option>
-	<option value="31.621400251682335, -106.4505902890376">Tanque 7-E</option>
-	<option value="31.59076082835226, -106.39254921835696">Tanque 10-E</option>
-	<option value="31.590715592872005, -106.39150229074053">Tanque 11-E</option>
-	<option value="31.59233411255656, -106.37395128046614">Tanque 17-E</option>
-	<option value="31.625625369065833, -106.46153365896814">Tanque 19-E</option>
-	<option value="31.609294448283965, -106.3901185726183">Tanque 21-E</option>
-	<option value="31.65126167998589, -106.46548484640107">Tanque 22-E</option>
-	<option value="31.59064362100411, -106.31932222683992">Tanque 23-E</option>
-	</select>
-
-
-
-	<select name ="superficial" id="superficial">
-		<option value="-1">Tanques Superficiales</option>
-		<option value="31.73132616156359, -106.49592863831066">Tanque 1</option>
-		<option value="31.731272551415287, -106.49566578185247">Tanque 3</option>
-		<option value="31.70374307040392, -106.47171088343975">Tanque 4</option>
-		<option value="31.703840764430115, -106.4718576097197">Tanque 5</option>
-		<option value="31.704109422471607, -106.4722276151213">Tanque 6</option>
-		<option value="31.718408005291348, -106.49954806448584">Tanque 8</option>
-		<option value="31.74583322574508, -106.5102528576119">Tanque 10</option>
-		<option value="31.695225179916537, -106.48263139493906">Tanque 11</option>
-		<option value="31.682288704731278, -106.48805152607355">Tanque 12</option>
-		<option value="31.666735805976277, -106.43858428267876">Tanque 13</option>
-		<option value="31.70783865238496, -106.50341581265864">Tanque 15-R</option>
-		<option value="31.729908385402926, -106.5083522235055">Tanque 16</option>
-		<option value="31.705400364858136, -106.48814067272687">Tanque 17</option>
-		<option value="31.716175668905027, -106.51163620452922">Tanque 19</option>
-		<option value="31.75120409361768, -106.51967504445413">Tanque 20</option>
-		<option value="31.71158315078912, -106.457996430167">Tanque 21</option>
-		<option value="31.671090199427265, -106.48057748434103">Tanque 22</option>
-		<option value="31.677822317205145, -106.467970775165">Tanque 23</option>
-		<option value="31.666735805976277, -106.43858428267876">Tanque 24</option>
-		<option value="31.731164717755146, -106.52720624616879">Tanque 25-R</option>
-		<option value="31.731213235752126, -106.52755447846548">Tanque 25-RR</option>
-		<option value="31.636375351732003, -106.3936538221314">Tanque 26</option>
-		<option value="31.705186133172962, -106.49618276670998">Tanque 36</option>
-		<option value="31.75455829938385, -106.52557882475195">Tanque 39</option>
-		<option value="31.769788188617106, -106.57489895160722">Tanque 40</option>
-		<option value="31.621751685480547, -106.4507080201696">Tanque 41</option>
-		<option value="31.651228985253795, -106.46531303345863">Tanque 42</option>
-		<option value="31.590565187078333, -106.31931672425453">Tanque 43</option>
-		<option value="31.611331497650976, -106.45438871749766">Tanque 44</option>
-		<option value="31.591504610012898, -106.37368208342936">Tanque 45</option>
-		<option value="31.695448465358155, -106.36731848891925">Tanque 46</option>
-		<option value="31.573381176197646, -106.3914718341568">Tanque 47</option>
-		<option value="31.731181732626442, -106.54337586568978">Tanque 48</option>
-		</select>
-
-		<select name ="rebombeo" id="rebombeo">
-			<option value="-1">Rebombeo</option>
-			<option value="31.718453537898718, -106.49975922920781">Rebombeo 1</option>
-			<option value="31.71834867111558, -106.49979905797582">Rebombeo 1-A</option>
-			<option value="31.718222830819208, -106.49986354264786">Rebombeo 1-B</option>
-			<option value="31.73125256837385, -106.49611804926501">Rebombeo 2</option>
-			<option value="31.73121834910666, -106.49627093516418">Rebombeo 2-A</option>
-			<option value="31.6953366690701, -106.48290249921128">Rebombeo 4</option>
-			<option value="31.69541251464946, -106.48296129405931">Rebombeo 4-A</option>
-			<option value="31.712664486738362, -106.46584097205124">Rebombeo 7</option>
-			<option value="31.713641864961065, -106.49109643902348">Rebombeo 9</option>
-			<option value="31.70873364166349, -106.51181098778451">Rebombeo 10</option>
-			<option value="31.708632099802827, -106.51198801356249">Rebombeo 10-A</option>
-			<option value="31.696265108787056, -106.47574578445077">Rebombeo 14</option>
-			<option value="31.696179528308093, -106.4757994286259">Rebombeo 15</option>
-			<option value="31.69614187287234, -106.47585977832296">Rebombeo 16</option>
-			<option value="31.69604830475369, -106.47596974888198">Rebombeo 17</option>
-			<option value="31.73122975553047, -106.49558428972233">Rebombeo 18</option>
-			<option value="31.712286162582316, -106.50123632472356">Rebombeo 21</option>
-			<option value="31.678275906346983, -106.46756950734955">Rebombeo 24</option>
-			<option value="31.65097582844878, -106.46504005316206">Rebombeo 26</option>
-			<option value="31.651078575015433, -106.46521171452252">Rebombeo 27</option>
-			<option value="31.651078575015433, -106.46521171452252">Rebombeo 28</option>
-			<option value="31.65116990520154, -106.46506687524963">Rebombeo 29</option>
-			<option value="31.705404441243775, -106.48897619879934">Rebombeo 31</option>
-			<option value="31.622893525892202, -106.45040631754316">Rebombeo 34</option>
-			<option value="31.65110891538045, -106.46470847338941">Rebombeo 35</option>
-			<option value="31.682602748522445, -106.48801223773978">Rebombeo 36</option>
-			<option value="31.682405057309584, -106.48830319204481">Rebombeo 36-A</option>
-			<option value="31.636490605701937, -106.39368178791266">Rebombeo 37</option>
-			<option value="31.611182388191416, -106.45459736291801">Rebombeo 39</option>
-			<option value="31.591475029150622, -106.3731751395553">Rebombeo 41</option>
-			<option value="31.591423406065257, -106.37295505013539">Rebombeo 42</option>
-			<option value="31.66374352654679, -106.47967907211206">Rebombeo 49</option>
-			<option value="31.69587884856306, -106.36714250374017">Rebombeo 50</option>
-			<option value="31.695708781680537, -106.36720448168302">Rebombeo 50-A</option>
-			<!--<option value="31.66374352654679, -106.47967907211206">Rebombeo 52 no encontrado</option>
-			<option value="31.66374352654679, -106.47967907211206">Rebombeo 53 no encontrado</option>-->
-			<option value="31.771639745581123, -106.52418241771463">Rebombeo 55</option>
-			<option value="31.77544856018132, -106.52424089225869">Rebombeo 56</option>
-			</select></div>
-			<div id="map"></div>
-<!--<a class="fcc-btn" href="formulario.html">Gasto</a>-->
- <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-     crossorigin=""></script>
-<script type="text/javascript" src="map1.js"></script>
-<script type="text/javascript" src="mapa2.js"></script>
-<!--<script type="text/javascript" src="layers.js"></script>-->
 </body>
-</html>
 
+</html>
